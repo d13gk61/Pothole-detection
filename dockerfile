@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy requirements.txt to the container and install dependencies
 COPY ./requirements.txt /app
 COPY ./best.pt /app/best.pt
-COPY ./fastpi/main.py /app  
+COPY ./main.py /app  
 RUN pip install -r requirements.txt --no-cache-dir
 RUN apt-get update && apt-get install -y libgl1-mesa-glx
 RUN mkdir /app/images
