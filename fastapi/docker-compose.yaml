@@ -1,0 +1,19 @@
+  version: '3.8'
+
+  services:
+    predict_pothole:
+      #the naem will be displayed
+      container_name: predict_pothole
+      build:
+        context: .
+        dockerfile: dockerfile
+      volumes:
+        - /home/donny/pothole_project/fastapi/best.pt:/home/donny/pothole_project/fastapi/best.pt
+        - /home/donny/pothole_project/pothole_dataset_v8/train/images:/home/donny/pothole_project/pothole_dataset_v8/train/images
+      ports:
+        - "8000:8000"   
+      image : donny/predict_pothole:1.0
+
+ 
+        
+

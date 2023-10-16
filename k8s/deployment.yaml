@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-app 
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ml-app 
+  template:
+    metadata:
+      labels:
+        app: ml-app 
+    spec:
+      containers:
+      - name: ml-app 
+        image: daockbn/predict-pothole:2.0
+
