@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying models..'
-                echo 'Running a script to trigger pull and start a docker container'
+                sh 'kubectl apply -f deployment.yaml'
             }
         }
     }
