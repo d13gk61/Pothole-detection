@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     echo 'Building image for deployment..'
-                    dockerImage = docker.build("-t $registry:$BUILD_NUMBER -f fastapi/Dockerfile .")
+                    dockerImage = docker.build("-t $registry:$BUILD_NUMBER -f ./fastapi/Dockerfile")
                     echo 'Pushing image to dockerhub..'
                     docker.withRegistry( '', registryCredential ) {
                         dockerImage.push()
