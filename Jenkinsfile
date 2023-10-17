@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying models..'
-                sh 'start minikube'
+                sh 'minikube start'
                 sh 'kubectl apply -f deployment.yaml'
             }
         }
