@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying models..'
-                sh 'kubectl apply -f deployment.yaml'
+                sh 'docker run -d -p 8000:8000 daockbn/predict-pothole:latest'
             }
         }
     }
