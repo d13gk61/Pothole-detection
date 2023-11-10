@@ -1,0 +1,23 @@
+- name: Create Compute Engine instances
+  hosts: localhost
+  tasks:
+  - name: Bring up the first instance
+    gcp_compute_instance:
+      name: instance-1
+      machine_type: e2-micro
+      # Refer to https://cloud.google.com/compute/docs/images/os-details#ubuntu_lts
+      # or use the command `gcloud compute images list --project=ubuntu-os-cloud`
+      zone: us-west1-b
+      project: pothole-detection-402408
+      auth_kind: serviceaccount
+      service_account_file: ../secrets/pothole-detection-402408-b82fafe89e7a.json
+      disks:
+        - auto_delete: true
+          boot: true
+          initialize_params:
+            source_image: projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20230727
+      # Default network for this instance
+      network_interfaces:
+        - network:
+            selfLink: global/networks/default
+      state: present # change to absent to delete the instance
