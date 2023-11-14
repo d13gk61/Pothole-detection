@@ -1,7 +1,6 @@
 # POTHOLE PREDICTION 
 
-## ARCHITECHTURE:
-
+## ARCHITECTURE:
 ![](images/architechture.png)
 
 ## Note:
@@ -32,7 +31,7 @@
 ## 3. observable systems
 I have a service, we need some observable systems to monitoring our service. In this repo, we suggest Elastic Search, Grafana, Prometheus and Jaeger.
 ### Observable systems architecture
-![](images/observation-architechture.png)
+![](images/observation-architecture.png)
 ### 3.1. Elastic Search
 #### How to guide
 + ```cd observable_systems/elk```
